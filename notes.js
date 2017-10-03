@@ -4,8 +4,8 @@ const fs = require('fs');
 
 var fetchNotes = () =>{
     try {
-    var notesString = fs.readFileSync('notes-data.json');
-    return JSON.parse(notesString);
+        var notesString = fs.readFileSync('notes-data.json');
+        return JSON.parse(notesString);
        
    } catch (error) {
        return [];
@@ -15,7 +15,6 @@ var fetchNotes = () =>{
 var saveNotes = (notes) => {
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 }
-
 
 var addNote = (title, body) => {
    var notes = fetchNotes();
@@ -27,10 +26,11 @@ var addNote = (title, body) => {
    if (duplicateNotes.length ===0) {
        notes.push(note);
        saveNotes(notes);
+       return note;
    }
 };
 
-var getAll = () =>{
+var getAll = () =>{ 
     console.log('Get all notes');
 };
 
