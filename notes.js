@@ -6,6 +6,7 @@ var fetchNotes = () =>{
     try {
         var notesString = fs.readFileSync('notes-data.json');
         return JSON.parse(notesString);
+        
        
    } catch (error) {
        return [];
@@ -17,17 +18,22 @@ var saveNotes = (notes) => {
 }
 
 var addNote = (title, body) => {
+    //console.log('add note step 1')
    var notes = fetchNotes();
    var note ={
        title,
        body
    };
-   var duplicateNotes = notes.filter((note) =>  note.title === title);
-   if (duplicateNotes.length ===0) {
+
+   //var duplicateNotes = notes.filter((note) =>  note.title === title);
+   //console.log('duplicateNotes step 1')
+   //if (duplicateNotes.length ===0) {
+    //console.log('duplicateNotes step 2')
        notes.push(note);
        saveNotes(notes);
        return note;
-   }
+      // console.log('notes returned')
+   //}
 };
 
 var getAll = () =>{ 
@@ -45,5 +51,6 @@ module.exports = {
     addNote,
     getAll,
     getNote,
-    removeNote
+    removeNote,
+    fetchNotes
 };
