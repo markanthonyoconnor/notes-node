@@ -25,15 +25,15 @@ var addNote = (title, body) => {
        body
    };
 
-   //var duplicateNotes = notes.filter((note) =>  note.title === title);
-   //console.log('duplicateNotes step 1')
-   //if (duplicateNotes.length ===0) {
+   var duplicateNotes = notes.filter((note) =>  note.title === title);
+   console.log('duplicateNotes step 1')
+   if (duplicateNotes.length ===0) {
     //console.log('duplicateNotes step 2')
        notes.push(note);
        saveNotes(notes);
        return note;
       // console.log('notes returned')
-   //}
+   }
 };
 
 var getAll = () =>{ 
