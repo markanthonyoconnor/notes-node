@@ -46,13 +46,27 @@ var addNoteWithLodash = (title, body) => {
        title,
        body
    };
+   notes.push(note);
+//   var duplicateNotes = _.uniq(addNoteWithLodash);
 
-   var duplicateNotes = _.uniq(addNoteWithLodash);
 
-   console.log('duplicateNotes step 1'+ duplicateNotes  +" "+addNoteWithLodash )
-   if (duplicateNotes.length !==addNoteWithLodash.length) {
+var uniqueNotes = _.map(
+    _.uniq(
+        _.map(notes, function(obj){
+            return JSON.stringify(obj);
+        })
+    ), function(obj) {
+        return JSON.parse(obj);
+    }
+);
+
+
+
+console.log('duplicateNotes step 1'+ uniqueNotes.length+" " + notes.length );
+   
+if (uniqueNotes.length ===notes.length) {
     console.log('duplicateNotes step 2')
-       notes.push(note);
+   
        saveNotes(notes);
        return note;
       // console.log('notes returned')
