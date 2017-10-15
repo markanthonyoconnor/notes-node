@@ -62,7 +62,7 @@ var uniqueNotes = _.map(
 
 
 
-console.log('duplicateNotes step 1'+ uniqueNotes.length+" " + notes.length );
+//console.log('duplicateNotes step 1'+ uniqueNotes.length+" " + notes.length );
    
 if (uniqueNotes.length ===notes.length) {
     console.log('duplicateNotes step 2')
@@ -80,7 +80,8 @@ if (uniqueNotes.length ===notes.length) {
 
 
 var getAll = () =>{ 
-    console.log('Get all notes');
+    debugger;
+    return fetchNotes();
 };
 
 var getNote = (title) => {
@@ -101,10 +102,12 @@ var removeNote = (title) => {
 };
 
 var logNote = (readNote) =>{
+    debugger;
     console.log('Note read');
     console.log('--');
     console.log(`Title: ${readNote.title}`);
     console.log(`Body: ${readNote.body}`);
+    
 }
 module.exports = {
     addNote,
