@@ -49,8 +49,10 @@ const argv = yargs
     }
     else if (command === 'list') {
       var newNotes =  notes.getAll();
+      debugger;
       console.log(`Printing ${newNotes.length} note(s).`);
       newNotes.forEach((note) => notes.logNote(note));
+      debugger;
     }
     else if (command === 'read') {
 
